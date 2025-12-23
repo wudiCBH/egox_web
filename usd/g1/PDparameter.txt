@@ -1,0 +1,31 @@
+command: python parseUSD.py /home/shuaizhou/Downloads/isaaclab_g1/isaaclab_g1/assets/unitree/g1/g1_29dof_rev_1_0.usd
+
+/g1_29dof_rev_1_0/joints/left_hip_pitch_joint -> kp=24.844928741455078 kd=0.009937971830368042 maxForce=88.0
+/g1_29dof_rev_1_0/joints/left_hip_roll_joint -> kp=62.14133071899414 kd=0.024856531992554665 maxForce=139.0
+/g1_29dof_rev_1_0/joints/left_hip_yaw_joint -> kp=150.4769287109375 kd=0.06019077077507973 maxForce=88.0
+/g1_29dof_rev_1_0/joints/left_knee_joint -> kp=230.08995056152344 kd=0.09203597903251648 maxForce=139.0
+/g1_29dof_rev_1_0/joints/left_ankle_pitch_joint -> kp=64.93678283691406 kd=0.025974713265895844 maxForce=50.0
+/g1_29dof_rev_1_0/joints/left_ankle_roll_joint -> kp=2.3019537925720215 kd=0.0009207814582623541 maxForce=50.0
+/g1_29dof_rev_1_0/joints/right_hip_pitch_joint -> kp=24.844932556152344 kd=0.009937972761690617 maxForce=88.0
+/g1_29dof_rev_1_0/joints/right_hip_roll_joint -> kp=62.1413459777832 kd=0.02485653944313526 maxForce=139.0
+/g1_29dof_rev_1_0/joints/right_hip_yaw_joint -> kp=150.47637939453125 kd=0.06019055098295212 maxForce=88.0
+/g1_29dof_rev_1_0/joints/right_knee_joint -> kp=230.08103942871094 kd=0.09203241765499115 maxForce=139.0
+/g1_29dof_rev_1_0/joints/right_ankle_pitch_joint -> kp=64.93678283691406 kd=0.025974711403250694 maxForce=50.0
+/g1_29dof_rev_1_0/joints/right_ankle_roll_joint -> kp=2.3019537925720215 kd=0.0009207814582623541 maxForce=50.0
+/g1_29dof_rev_1_0/joints/waist_yaw_joint -> kp=27.7011775970459 kd=0.011080470867455006 maxForce=88.0
+/g1_29dof_rev_1_0/joints/waist_roll_joint -> kp=53.91839599609375 kd=0.021567359566688538 maxForce=50.0
+/g1_29dof_rev_1_0/joints/waist_pitch_joint -> kp=52.75600051879883 kd=0.02110240049660206 maxForce=50.0
+/g1_29dof_rev_1_0/joints/left_shoulder_pitch_joint -> kp=131.4393768310547 kd=0.05257575213909149 maxForce=25.0
+/g1_29dof_rev_1_0/joints/left_shoulder_roll_joint -> kp=100.44940948486328 kd=0.04017976298928261 maxForce=25.0
+/g1_29dof_rev_1_0/joints/left_shoulder_yaw_joint -> kp=91.41529083251953 kd=0.0365661159157753 maxForce=25.0
+/g1_29dof_rev_1_0/joints/left_elbow_joint -> kp=43.89737319946289 kd=0.017558949068188667 maxForce=25.0
+/g1_29dof_rev_1_0/joints/left_wrist_roll_joint -> kp=27.226972579956055 kd=0.010890789330005646 maxForce=25.0
+/g1_29dof_rev_1_0/joints/left_wrist_pitch_joint -> kp=7.860546588897705 kd=0.00314421858638525 maxForce=5.0
+/g1_29dof_rev_1_0/joints/left_wrist_yaw_joint -> kp=3.5975594520568848 kd=0.0014390237629413605 maxForce=5.0
+/g1_29dof_rev_1_0/joints/right_shoulder_pitch_joint -> kp=131.44789123535156 kd=0.05257915332913399 maxForce=25.0
+/g1_29dof_rev_1_0/joints/right_shoulder_roll_joint -> kp=100.46080017089844 kd=0.040184322744607925 maxForce=25.0
+/g1_29dof_rev_1_0/joints/right_shoulder_yaw_joint -> kp=91.42789459228516 kd=0.03657115623354912 maxForce=25.0
+/g1_29dof_rev_1_0/joints/right_elbow_joint -> kp=43.899925231933594 kd=0.017559969797730446 maxForce=25.0
+/g1_29dof_rev_1_0/joints/right_wrist_roll_joint -> kp=27.22773551940918 kd=0.01089109480381012 maxForce=25.0
+/g1_29dof_rev_1_0/joints/right_wrist_pitch_joint -> kp=7.860599517822266 kd=0.0031442397739738226 maxForce=5.0
+/g1_29dof_rev_1_0/joints/right_wrist_yaw_joint -> kp=3.5975680351257324 kd=0.0014390271389856935 maxForce=5.0
