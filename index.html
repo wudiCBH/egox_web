@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EgoX</title>
+  <link rel="icon" href="./figs/egox_iconv2.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="icon" href="./images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+</head>
+<body>
+  <div class="toc">
+    <h3>Content</h3>
+    <hr>
+    <ul>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#acknowledgements">Acknowledgements</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div class="hero-text">EgoX</div>
+    <div class="sub-hero-text">An Unified Framework for cross-embodiment policy learning</div>
+
+    <!-- Add Authors -->
+    <div class="authors">
+      <a href="https://yaruniu.com/" target="_blank">Yaru Niu</a><br>
+      <a href="https://www.meche.engineering.cmu.edu/directory/bios/zhao-ding.html" target="_blank">Ding Zhao</a>
+      <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(*:equal contribution) -->
+      <span class="affiliation">Carnegie Mellon University, Google Research</span>
+      <span class="affiliation" style="color: #555; text-align: center; font-size: 20px; margin-top: 6px;">Under prepration for IROS 2026</span>
+    </div>
+    <!-- End Authors -->
+
+    <!-- use the video ./figs/videomimic_teaser.mp4 -->
+    <video id="teaser-video" src="./videos/Human2LocoMan： Learning Versatile Quadrupedal Manipulation with Human Pretraining [ay_-z9M18p0].webm" width="100%" height="100%" controls muted playsinline autoplay></video>
+    <!-- Caption for Figure 1 (Teaser Video) -->
+    <p class="figure-caption">
+        <span style="font-variant: small-caps;">VideoMimic</span> is a real-to-sim-to-real pipeline that converts monocular videos into transferable humanoid skills, letting robots learn context-aware behaviors (terrain-traversing, climbing, sitting) in a single policy.
+    </p>
+
+    <div class="column has-text-centered">
+      <div class="publication-links">
+        <!-- PDF Link. -->
+        <span class="link-block">
+          <a href="https://arxiv.org/pdf/2011.12948"
+              class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="fas fa-file-pdf"></i>
+            </span>
+            <span>Paper</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="https://arxiv.org/abs/2011.12948"
+              class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="ai ai-arxiv"></i>
+            </span>
+            <span>arXiv</span>
+          </a>
+        </span>
+        <!-- Video Link. -->
+        <span class="link-block">
+          <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+              class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="fab fa-youtube"></i>
+            </span>
+            <span>Video</span>
+          </a>
+        </span>
+        <!-- Code Link. -->
+        <span class="link-block">
+          <a href="https://github.com/google/nerfies"
+              class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="fab fa-github"></i>
+            </span>
+            <span>Code</span>
+            </a>
+        </span>
+        <!-- Dataset Link. -->
+        <span class="link-block">
+          <a href="https://github.com/google/nerfies/releases/tag/0.1"
+              class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+                <i class="far fa-images"></i>
+            </span>
+            <span>Data</span>
+            </a>
+        </span>
+      </div>
+    </div>
+    
+    <div class="tagline" id="abstract">Abstract.</div>
+    <div class="paper-section">
+      Learning from demonstrations across different embodiments is a very promising way for scaling up training data to achieve better generalizations.
+      Based on this insight, we introduce EgoX, an uniformed framework for cross-embodiment learning which enables different robots -- humanoid, locoman, roboticarm -- to learn from human videos.
+      In this work, we provide uniformed data collection and training pipelines for dexterous manipulation tasks, bridging the gap between different embodiments. 
+    </div> 
+
+    <div class="columns is-centered">
+      <div class="interpolation-panel"
+          style="width: 1280px; height: 340px; background-color: #fff4cf; margin: 0 auto; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <div id="viewer1" style="width: 98%; height: 95%;"></div>
+      </div>
+      <div class="interpolation-panel"
+          style="width: 1280px; height: 340px; background-color: #fff4cf; margin: 0 auto; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <div id="viewer2" style="width: 98%; height: 95%;"></div>
+      </div>
+      <div class="interpolation-panel"
+          style="width: 1280px; height: 340px; background-color: #fff4cf; margin: 0 auto; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+        <div id="viewer3" style="width: 98%; height: 95%;"></div>
+      </div>
+    </div>
+    
+    <div class="tagline" id="acknowledgements">Acknowledgements.</div>
+    <div class="paper-section" style="margin-top: -5px;">
+      <p>
+        We thank Binghong for making this website.
+      </p>
+    </div>
+
+    <div class="paper-bibtex-code" id="BibTex">
+      <div class="paper-bibtex-title">BibTeX</div>
+      <pre><code>@inproceedings{EgoX,
+        title     = {An Unified Framework for cross-embodiment policy learning},
+        author    = {Yaru Niu},
+        booktitle = {Proceedings of the Conference on Robot Learning (IROS)},
+        year      = {2026}
+      }</code></pre>
+    </div>
+
+  </div> <!-- End of main-content div -->
+
+  <div class="footer">
+    <!-- © UC Berkeley | Powered by vision, motion, and a little ambition. -->
+    © Carnegie Mellon | Webpage materials are adapted from <a href="https://github.com/videomimic-1/videomimic-1.github.io" target="_blank">VideoMimic</a> and <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a>.
+  </div>
+
+  <script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+    import { GLTFLoader } from 'https://esm.sh/three@0.160.0/examples/jsm/loaders/GLTFLoader.js';
+
+    function createViwer(containerId, glbPath, camerapos, cameralookat){
+      const container = document.getElementById(containerId);
+      const width = container.clientWidth, height = container.clientHeight;
+      //camera
+      const camera = new THREE.PerspectiveCamera( 70, width / height, 0.01, 10 );
+      camera.position.copy(camerapos); //0.3,0.25,0.4
+      camera.lookAt(cameralookat)
+      //scene
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0xfffbec);
+      //Lights
+      const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x8d8d8d, 3 );
+      hemiLight.position.set( 0, 20, 0 );
+      scene.add( hemiLight );
+
+      const dirLight = new THREE.DirectionalLight( 0xffffff, 3 );
+      dirLight.position.set( - 3, 10, - 10 );
+      dirLight.castShadow = true;
+      dirLight.shadow.camera.top = 2;
+      dirLight.shadow.camera.bottom = - 2;
+      dirLight.shadow.camera.left = - 2;
+      dirLight.shadow.camera.right = 2;
+      dirLight.shadow.camera.near = 0.1;
+      dirLight.shadow.camera.far = 40;
+      scene.add( dirLight );
+      //Reander
+      const renderer = new THREE.WebGLRenderer( { antialias: true } );
+      renderer.setSize( width, height );
+      container.appendChild( renderer.domElement );
+      //Load model
+      const loader = new GLTFLoader();
+      let model = null;
+
+      loader.load(
+        glbPath, 
+        function (gltf) {
+          model = gltf.scene;
+          model.scale.set(0.5, 0.5, 0.5); 
+          scene.add(model);
+
+          model.traverse((child) => {
+            if (child.isMesh) {
+              const edges = new THREE.EdgesGeometry(child.geometry, 60); 
+              const line = new THREE.LineSegments(
+                edges,
+                new THREE.LineBasicMaterial({ color: 0x000000 })
+              );
+              child.add(line);
+            }
+          });
+        },
+      );
+
+      // Move while hover the mouse
+      let isHover = false;
+      let lastX = 0;
+      const initialRotationY = 0;
+      const sensitivity = 0.002;
+      const returnSpeed = 0.06;
+
+      container.addEventListener('mouseenter', (e) => {
+        isHover = true;
+        lastX = e.clientX;
+      });
+
+      container.addEventListener('mousemove', (e) => {
+        if (!isHover || !model) return;
+        const deltaX = e.clientX - lastX;
+        model.rotation.y += deltaX * sensitivity;
+        lastX = e.clientX;
+      });
+
+      container.addEventListener('mouseleave', () => {
+        isHover = false;
+      });
+      //animate
+      function animate() {
+        if (model && !isHover){
+          model.rotation.y +=(initialRotationY - model.rotation.y) * returnSpeed;
+        }
+        renderer.render( scene, camera );
+      }
+      renderer.setAnimationLoop( animate );
+    }
+    const camerapos1 = new THREE.Vector3(0.23, 0.34, 0.37)
+    const cameralookat1 = new THREE.Vector3(0.1, 0.25, 0)
+    createViwer('viewer1','./glb/xARM7_leap_handv2.glb', camerapos1, cameralookat1);
+    const camerapos2 = new THREE.Vector3(0.23, 0.13, 0.29)
+    const cameralookat2 = new THREE.Vector3(0.05, -0.03, 0)
+    createViwer('viewer2','./glb/LocoMan_v3.glb', camerapos2, cameralookat2);
+    const camerapos3 = new THREE.Vector3(0.31, 0.13, 0.4)
+    const cameralookat3 = new THREE.Vector3(0.05, -0.01, 0)
+    createViwer('viewer3','./glb/Humanoid_v2.glb', camerapos3, cameralookat3);
+
+  </script>
+
+</body>
+</html>
