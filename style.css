@@ -127,7 +127,7 @@ body {
   font-size: 28px;
   background: none;
   color: #000;
-  display: inline-block;
+  display: block;
   padding: 0;
   margin-bottom: 20px;
 }
@@ -258,17 +258,12 @@ a#figure-3-img img {
 
 
 .gallery-video {
-  flex: 0 0 auto; /* Prevent videos from shrinking/growing in the flex context */
-  /* width: 30vw; */ /* Remove fixed/relative width */
-  /* max-width: 450px; */ /* Remove max-width as width will be auto */
-  height: 220px;  /* Set a fixed height for all videos. Adjust this value as desired. */
-  width: auto;    /* Allow width to adjust to maintain original aspect ratio */
-  /* max-height: 253.125px; */ /* No longer needed if height is fixed */
-  /* object-fit: cover; */ /* Remove object-fit: cover to avoid cropping */
-  border-radius: 15px; /* Keep the rounded corners */
+  flex: 0 0 auto;
+  height: 220px;  
+  width: auto;   
+  border-radius: 15px; 
   box-sizing: border-box;
-  background-color: #fdfaf4; /* Assuming you've reverted from the lime diagnostic */
-  /* Add a box-shadow for the glow/shadow effect */
+  background-color: #fdfaf4; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -533,7 +528,7 @@ video.r2s-video-item {
   font-size: 20px;
   background: none;
   color: #000;
-  display: inline-block;
+  display: block;
   padding: 6px 14px;
   margin: 30px 0 24px 0;
 }
@@ -569,16 +564,15 @@ video.r2s-video-item {
 
 /* Styling for individual videos within the gallery */
 .video-gallery .gallery-video {
-  /* width: auto; */ /* Let height dictate width for consistency */
-  height: 224px; /* Fixed height for all gallery videos */
-  margin-right: 0px; /* Spacing between videos */
-  flex-shrink: 0; /* Prevent videos from shrinking in the flex container */
+  height: 224px;
+  margin-right: 0px; 
+  flex-shrink: 0; 
 }
 
 /* Make videos in the Reconstruction Gallery taller */
 #reconstructionGallerySection .gallery-video {
-  height: 220px; /* Adjust this value as needed for desired taller height */
-}
+  height: 220px; 
+} 
 
 /* Styling for the caption and navigation controls container */
 .gallery-caption-container {
@@ -641,4 +635,27 @@ video.r2s-video-item {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.better-video-frame {
+  display: inline-block;
+
+  /* 控制大小 */
+  width: 960px;
+  height: auto;
+
+  /* 视觉样式 */
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background-color: #000;
+
+  /* 关键：裁剪 video */
+  overflow: hidden;
+}
+
+.better-video-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 关键：确保视频铺满 360x224 的区域而不变形 */
+  display: block;
 }

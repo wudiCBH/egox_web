@@ -4,23 +4,12 @@
   <meta charset="UTF-8">
   <title>EgoX</title>
   <link rel="icon" href="./figs/egox_iconv2.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-      rel="stylesheet">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <link rel="stylesheet" href="./css/bulma.min.css">
-  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="style.css">
-  <!-- <link rel="icon" href="./images/favicon.svg"> -->
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./js/fontawesome.all.min.js"></script>
-  <script src="./js/bulma-carousel.min.js"></script>
-  <script src="./js/bulma-slider.min.js"></script>
 </head>
 <body>
   <div class="toc">
@@ -28,6 +17,10 @@
     <hr>
     <ul>
       <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#unified-data-collection">Data Collection</a></li>
+      <li class="toc-subsection"><a href="#human">Human</a></li>
+      <li class="toc-subsection"><a href="#humanoid">Humanoid</a></li>
+      <li><a href="#crossembodiment-learning">Cross-Embodiment Learning</a></li>
       <li><a href="#acknowledgements">Acknowledgements</a></li>
     </ul>
   </div>
@@ -135,7 +128,61 @@
         style="width: 1280px; height: 340px; background-color: #fff4cf; margin: 0 auto; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
       <div id="viewer3" style="width: 98%; height: 95%;"></div></div>
     </div>
+    <p class="figure-caption">
+      <b>Robot Evolution</b> 
+    </p>
+
+    <div class="tagline" id="unified-data-collection">Unified Framework for Data Collection.</div>
+    <div class="section-subtitle" id="human">1. Human.</div>
+    <!-- <video id="teaser-video" src="./videos/human_tasks.mp4" width="100%" height="100%" controls muted playsinline autoplay loop></video> -->
+    <div class="column has-text-centered">
+      <div class="better-video-frame">
+      <video src="./videos/human_tasks.mp4" controls autoplay muted playsinline loop></video>
+      </div>
+    </div>
+    <p class="figure-caption">
+      <b>Ego-Centric Human Demonstrations</b> 
+    </p>
+
+    <div class="section-subtitle" id="humanoid">2. Humanoid.</div>
+    <div class="column has-text-centered">
+      <div class="better-video-frame">
+      <video src="./videos/g1_nuts_pour.mp4" controls autoplay muted playsinline loop></video>
+      </div>
+    </div>
+    <p class="figure-caption">
+      <b>Data Collection for G1 Humanoid</b> 
+    </p>
     
+    <div class="video-gallery-section" id="humanoidGallerySection">
+      <div class="video-gallery-container">
+        <div class="video-gallery" id="videoGalleryHumanoid">
+          <video class="gallery-video" src="./videos/banana_cut_cut.mp4" autoplay muted playsinline loop></video>
+          <video class="gallery-video" src="./videos/cat_scoop_cut.mp4" autoplay muted playsinline loop></video>
+          <video class="gallery-video" src="./videos/nuts_pour_bowl_cut2.mp4" autoplay muted playsinline loop></video>
+          <video class="gallery-video" src="./videos/nuts_pour_cup_cut.mp4" autoplay muted playsinline loop></video>
+          <video class="gallery-video" src="./videos/nuts_scoop_cut2.mp4" autoplay muted playsinline loop></video>
+          <video class="gallery-video" src="./videos/toy_cut.mp4" autoplay muted playsinline loop></video>
+        </div>
+      </div>
+      <div class="gallery-caption-container">
+          <div class="gallery-nav-controls">
+            <button class="gallery-nav left" id="scrollLeftBtnHumanoid">&lt;</button>
+            <button class="gallery-nav right" id="scrollRightBtnHumanoid">&gt;</button>
+          </div>
+          <p class="figure-caption gallery-caption">
+            <b>Versatile Manipulation Tasks including Tool Use:</b> Cutting bananas and toys, scooping nuts, and pouring them into bowls and cups — a diverse set of everyday manipulation tasks
+          </p>
+      </div>
+    </div>
+
+    <div class="tagline" id="crossembodiment-learning">Unified Framework for Cross-Embodiment Ego-Centric Learning.</div>
+    <div class="column has-text-centered">
+      <div class="better-video-frame">
+      <video src="./videos/embodiment_compare.mp4" controls autoplay muted playsinline loop></video>
+      </div>
+    </div>
+
     <div class="tagline" id="acknowledgements">Acknowledgements.</div>
     <div class="paper-section" style="margin-top: -5px;">
       <p>
@@ -258,6 +305,55 @@
     const cameralookat3 = new THREE.Vector3(0.05, -0.01, 0)
     createViwer('viewer3','./glb/Humanoid_v2.glb', camerapos3, cameralookat3);
 
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const galleries = [
+        {
+          sectionId: 'humanoidGallerySection', 
+          galleryInnerId: 'videoGalleryHumanoid',
+          scrollLeftBtnId: 'scrollLeftBtnHumanoid',
+          scrollRightBtnId: 'scrollRightBtnHumanoid'
+        },
+      ];
+
+      galleries.forEach(galleryConfig => {
+        const gallerySection = document.getElementById(galleryConfig.sectionId);
+        if (!gallerySection) {
+          console.error(`Gallery section with ID ${galleryConfig.sectionId} not found.`);
+          return;
+        }
+
+        const galleryContainer = gallerySection.querySelector('.video-gallery-container');
+        const galleryInner = document.getElementById(galleryConfig.galleryInnerId);
+        const scrollLeftBtn = document.getElementById(galleryConfig.scrollLeftBtnId);
+        const scrollRightBtn = document.getElementById(galleryConfig.scrollRightBtnId);
+
+        if (galleryContainer && galleryInner && scrollLeftBtn && scrollRightBtn) {
+          // Calculate the scroll amount based on the width of the first video + gap
+          const scrollAmount = (galleryInner.firstElementChild?.offsetWidth || 300) + 15; // 15 is the gap
+
+          scrollLeftBtn.addEventListener('click', () => {
+            // Scroll the CONTAINER element
+            galleryContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+          });
+
+          scrollRightBtn.addEventListener('click', () => {
+            // Scroll the CONTAINER element
+            galleryContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          });
+
+        } else {
+          console.error(`Gallery elements not found for navigation setup in section ${galleryConfig.sectionId}.`);
+          // Log which elements might be missing
+          if (!galleryContainer) console.error('Missing element: .video-gallery-container in section ' + galleryConfig.sectionId);
+          if (!galleryInner) console.error(`Missing element with ID ${galleryConfig.galleryInnerId}`);
+          if (!scrollLeftBtn) console.error(`Missing element with ID ${galleryConfig.scrollLeftBtnId}`);
+          if (!scrollRightBtn) console.error(`Missing element with ID ${galleryConfig.scrollRightBtnId}`);
+        }
+      });
+    });
   </script>
 
 </body>
